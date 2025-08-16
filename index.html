@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romar Jan Santero - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /* Navbar */
+        .navbar {
+            background-color: transparent !important;
+            position: absolute;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar a {
+            font-weight: 500;
+        }
+        /* Hero Section */
+        .hero {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .hero-left {
+            flex: 1;
+            background-color: #111;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 40px;
+        }
+        .hero-left h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .hero-left p {
+            max-width: 400px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+        .hero-right {
+            flex: 1;
+            background: url('imageone.png') center/cover no-repeat;
+            position: relative;
+        }
+        .hero-right::after {
+            content: "<Coder>";
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #111;
+        }
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* reveal animation for sections and hero columns */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 600ms ease, transform 600ms ease;
+            will-change: opacity, transform;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* fade-in for text lines/items with optional stagger */
+        .reveal-text {
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 480ms ease, transform 480ms ease;
+            will-change: opacity, transform;
+        }
+        .reveal-text.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Scroll progress bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0%;
+            background: linear-gradient(90deg,#4ade80,#06b6d4);
+            z-index: 2000;
+            pointer-events: none;
+            transition: width 120ms linear;
+        }
+        
+        /* avoid stagger/animation for users who prefer reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-text { transition: none !important; transform: none !important; opacity: 1 !important; }
+        }
+
+        /* active nav link */
+        .nav-link.active {
+            color: #06b6d4 !important;
+            font-weight: 600;
+        }
+
+        /* respect user prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .navbar, .scroll-progress { transition: none !important; }
+            html { scroll-behavior: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Romar Jan Santero</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#employment">Employment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <ul class="navbar-nav ms-3">
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-linkedin"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-github"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>Romar Jan Santero</h1>
+            <p>Information Technology Student</p>
+        </div>
+        <div class="hero-right"></div>
+    </section>
+
+    <!-- About -->
+    <section class="container" id="about">
+        <h2 class="section-title">Profile</h2>
+        <p>
+            Dynamic and motivated College Student with a commitment to academic excellence and collaborative learning.
+            Currently engaged in enhancing understanding through research and participation in workshops, demonstrating
+            strong editing skills and a proactive approach to education. Striving to maintain a balanced GPA while managing
+            multiple responsibilities showcases effective time management and dedication to personal growth. Eager to
+            leverage academic experiences and skills in a challenging educational environment.
+        </p>
+    </section>
+
+    <!-- Skills -->
+    <section class="container" id="skills">
+        <h2 class="section-title">Skills & Languages</h2>
+        <ul>
+            <li>Editing</li>
+            <li>Languages: Filipino, Hiligaynon, English</li>
+        </ul>
+    </section>
+
+    <!-- Education -->
+    <section class="container" id="education">
+        <h2 class="section-title">Education</h2>
+        <ul>
+            <li><strong>College:</strong> STI West Negros Occidental, Bacolod City (July 2025 - Dec 2025)</li>
+            <li><strong>Senior High School:</strong> Enriqueta Montilla de Esteban Memorial High School, Pulupandan (June 2020 - May 2022)</li>
+            <li><strong>High School:</strong> Enriqueta Montilla de Esteban Memorial High School, Pulupandan (June 2016 - May 2019)</li>
+            <li><strong>Elementary:</strong> Pulupandan Praise Christian Community School (June 2010 - March 2014)</li>
+        </ul>
+    </section>
+
+    <!-- Employment -->
+    <section class="container" id="employment">
+        <h2 class="section-title">Employment History</h2>
+        <h5>College Student - STI West Negros University, Burgos St. Bacolod City</h5>
+        <p><em>July 2025 - December 2025</em></p>
+        <ul>
+            <li>Engaged in collaborative projects to enhance academic understanding.</li>
+            <li>Attended workshops and seminars to broaden knowledge in various subjects.</li>
+            <li>Conducted research capstone (ongoing).</li>
+            <li>Maintained a balanced GPA while balancing multiple responsibilities.</li>
+        </ul>
+    </section>
+
+    <!-- Hobbies -->
+    <section class="container" id="hobbies">
+        <h2 class="section-title">Hobbies</h2>
+        <ul>
+            <li>Editing</li>
+            <li>Designing</li>
+            <li>Project Managing</li>
+        </ul>
+    </section>
+
+    <!-- Extra-curricular -->
+    <section class="container" id="extra">
+        <h2 class="section-title">Extra-curricular Activities</h2>
+        <ul>
+            <li>ICT Seminar, Bacolod City (Feb 2024 - Feb 2025)</li>
+        </ul>
+    </section>
+
+    <!-- Courses -->
+    <section class="container" id="courses">
+        <h2 class="section-title">Courses</h2>
+        <ul>
+            <li>Network Technology, STI West Negros University (July 2025 - Dec 2025)</li>
+            <li>Computer Programming, STI West Negros University (Aug 2022 - Dec 2025)</li>
+        </ul>
+    </section>
+
+    <!-- Contact -->
+    <section class="container" id="contact">
+        <h2 class="section-title">Contact</h2>
+        <ul>
+            <li><strong>Address:</strong> Maleconst. Brgy Zone 6 Pulupandan, 6102, Philippines</li>
+            <li><strong>Phone:</strong> 09955391345</li>
+            <li><strong>Email:</strong> janromarsantero@gmail.com</li>
+            <li><strong>Nationality:</strong> Filipino</li>
+            <li><strong>Date/Place of Birth:</strong> 02/23/2003, Valladolid, Negros Occidental</li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Romar Jan Santero. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // reveal-on-scroll for sections and hero + navbar background on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.querySelector('.navbar');
+            const targets = document.querySelectorAll('section, .hero-left, .hero-right');
+
+            // add initial hidden state
+            targets.forEach(el => el.classList.add('reveal'));
+
+            // add reveal-text to headings, paragraphs and list items for fade-in (will be staggered)
+            const textSelectors = [
+                '.container h2', '.container p', '.container li',
+                '.hero-left h1', '.hero-left p', '.hero-right'
+            ].join(',');
+            const textElements = document.querySelectorAll(textSelectors);
+            textElements.forEach(el => el.classList.add('reveal-text'));
+
+            // IntersectionObserver to toggle visible class
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            targets.forEach(el => observer.observe(el));
+
+            // Text fade-in with stagger when its container enters viewport
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const textObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const items = entry.target.querySelectorAll('.reveal-text');
+                    if (!items.length) return;
+                    if (entry.isIntersecting) {
+                        if (reduceMotion) {
+                            items.forEach(i => i.classList.add('visible'));
+                        } else {
+                            items.forEach((el, idx) => {
+                                el.style.transitionDelay = (idx * 60) + 'ms';
+                                el.classList.add('visible');
+                            });
+                        }
+                    } else {
+                        items.forEach(el => {
+                            el.classList.remove('visible');
+                            el.style.transitionDelay = '';
+                        });
+                    }
+                });
+            }, { threshold: 0.12 });
+            targets.forEach(el => textObserver.observe(el));
+
+            // Navbar background toggle on scroll
+            const onScroll = () => {
+                if (window.scrollY > 50) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            // Scroll progress bar
+            const progress = document.querySelector('.scroll-progress');
+            const updateProgress = () => {
+                const doc = document.documentElement;
+                const scrollTop = window.scrollY || doc.scrollTop;
+                const height = doc.scrollHeight - window.innerHeight;
+                const pct = height > 0 ? Math.min(100, (scrollTop / height) * 100) : 0;
+                progress.style.width = pct + '%';
+            };
+            // throttle with rAF
+            let rafId = null;
+            const onFastScroll = () => {
+                if (rafId) cancelAnimationFrame(rafId);
+                rafId = requestAnimationFrame(() => {
+                    updateProgress();
+                    rafId = null;
+                });
+            };
+            window.addEventListener('scroll', onFastScroll, { passive: true });
+            window.addEventListener('resize', onFastScroll);
+            updateProgress();
+
+            // Active nav link highlighting based on sections in view
+            const navLinks = document.querySelectorAll('.navbar .nav-link[href^="#"]');
+            const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+            const navObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const id = entry.target.id;
+                    const link = document.querySelector('.navbar .nav-link[href="#' + id + '"]');
+                    if (!link) return;
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.55 });
+
+            sections.forEach(s => navObserver.observe(s));
+
+            // Ensure clicking nav links closes mobile menu and smooth-scrolls (scroll-behavior: smooth already set)
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetSelector = link.getAttribute('href');
+                    const target = document.querySelector(targetSelector);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // collapse bootstrap navbar on small screens
+                        const collapse = document.querySelector('.navbar-collapse');
+                        if (collapse && collapse.classList.contains('show')) {
+                            const bsCollapse = bootstrap.Collapse.getInstance(collapse) || new bootstrap.Collapse(collapse);
+                            bsCollapse.hide();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
